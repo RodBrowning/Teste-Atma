@@ -1,6 +1,6 @@
 
 function isEmpty(obj){
-	// Seleciona um ul para verificar se ja existe, caso contrario seria duplicada
+	// Seleciona um ul para verificar se ja existe, caso contrario geraria duplicada
 	var ul = obj.parentElement.querySelector('ul');
 	// Remove espaços em branco
 	var value = obj.value.trim();
@@ -12,7 +12,7 @@ function isEmpty(obj){
 		obj.style.backgroundColor = "#ffefef";
 
 		// Se nao existir uma ul ela será criada
-		// Se exister sera excluido o li dentro dela
+		// Se existir sera excluido o li dentro dela
 		if(!ul){				
 			var ul = document.createElement("ul");
 		}else{

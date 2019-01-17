@@ -25,25 +25,25 @@
 							<div class="row">
 								<div class="form-group col-lg-6">
 								    <label for="first-name">FIRST NAME</label>
-								    <input type="text" class="form-control" id="first-name" onfocusout="isEmpty(this)" onkeyup="clearError(this); checkEmpty()">	
+								    <input type="text" class="form-control" id="first-name" oninput="validaNome(this)" onfocusout="validaNome(this)">	
 								</div>
 								<div class="form-group col-lg-6">
 								    <label for="last-name">LAST NAME</label>
-								    <input type="text" class="form-control" id="last-name" onfocusout="isEmpty(this)" onkeyup="clearError(this); checkEmpty()">
+								    <input type="text" class="form-control" id="last-name" oninput="validaSobrenome(this)" onfocusout="validaSobrenome(this)">
 								</div>
 							</div>
 						  	<div class="form-group">
 							    <label for="email">EMAIL ADDRESS</label>
-							    <input type="email" class="form-control" id="email" onfocusout="isEmpty(this)" onkeyup="clearError(this); checkEmpty()">
+							    <input type="email" class="form-control" id="email" onfocusout="validaEmail(this)">
 							</div>
 							<div class="row">
 								<div class="form-group col-lg-6">
 								    <label for="password">PASSWORD</label>
-								    <input type="password" class="form-control" id="password" onfocusout="isEmpty(this)" onkeyup="clearError(this); checkEmpty()">	
+								    <input type="password" class="form-control" id="password"   oninput="validaPassword(this)" onfocusout="validaPassword(this)">	
 								</div>
 								<div class="form-group col-lg-6">
 								    <label for="cPassword">CONFIRM PASSWORD</label>
-								    <input type="password" class="form-control" id="cPassword" onfocusout="isEmpty(this)" onkeyup="clearError(this); checkEmpty()">
+								    <input type="password" class="form-control" id="cPassword"  oninput="validaPassword(this)" onfocusout="validaPassword(this)">
 								</div>
 							</div>
 						  <input type="submit" class="btn btn-secondary btn-block" disabled id="submit" value="SIGN UP">

@@ -21,8 +21,6 @@ function validEmail(obj){
 		var expressaoRegular = /[a-z0-9._]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?/;
 		var expression = new RegExp(expressaoRegular);
 		var test = expression.test(obj.value.trim());
-		console.log(obj.value.trim());
-		console.log(test);
 		if(test){
 			return true
 		}else{
@@ -111,7 +109,6 @@ function liberaBotao(){
 		submit.disabled = false;
 	}
 }
-
 
 
 function exibeErro(obj){

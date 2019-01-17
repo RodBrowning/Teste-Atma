@@ -1,3 +1,4 @@
+// Variaveis de controle dos campos
 var nome = false;
 var sobreNome = false;
 var email = false;
@@ -5,7 +6,7 @@ var validPassword = false;
 var validForm = false;
 
 
-
+// Verifica estado do campo
 function hasText(obj){
 	var value = obj.value.trim();
 	if(value == ''){
@@ -54,7 +55,7 @@ function checkPassword(){
 }
 
 
-
+// Validação dos campos
 function validaNome(obj){
 	nome = hasText(obj);
 	if(!nome){
@@ -90,6 +91,8 @@ function validaPassword(obj){
 	validaForm();
 }
 
+
+// Validação do formulario
 function validaForm(){
 	if( nome &&
 		sobreNome &&
@@ -112,7 +115,7 @@ function liberaBotao(){
 	}
 }
 
-
+// Mensagens de erro
 function exibeErro(obj, msg){
 	var ul = obj.parentElement.querySelector('ul');	
 	// Aqui acontece se o campo estiver vazio

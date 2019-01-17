@@ -75,13 +75,10 @@ function validaCampoTxt(obj, campo, msgErro){
 	validaForm();
 }
 
-
-
 function validaPassword(obj){
 	checkCpassword();	
 	validaForm();
 }
-
 
 // Validação do formulario
 function validaForm(){

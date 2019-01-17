@@ -37,7 +37,7 @@ function validEmail(obj){
 function checkCpassword(){
 	var password = document.querySelector("#password");
 	var cPassword = document.querySelector("#cPassword");
-	var msgErro = "Os passwords devem ser iguais";
+	var msgErro = "Password filds must be the same";
 	if(hasText(password) || hasText(cPassword)){
 		if(password.value.trim() == cPassword.value.trim()){
 			validPassword = true;			
@@ -45,7 +45,7 @@ function checkCpassword(){
 			validPassword = false;
 		}
 	}else{
-		return exibeErro(cPassword,'O campo senha é obrigatório');
+		return exibeErro(cPassword,'Lastname field is required');
 	}
 	if(validPassword){
 		retiraErro(cPassword);

@@ -33,7 +33,8 @@ function validEmail(obj){
 	}
 }
 
-function checkPassword(){
+
+function checkCpassword(){
 	var password = document.querySelector("#password");
 	var cPassword = document.querySelector("#cPassword");
 	var msgErro = "Os passwords devem ser iguais";
@@ -47,10 +48,8 @@ function checkPassword(){
 		validPassword = false;		
 	}
 	if(validPassword){
-		retiraErro(password);
 		retiraErro(cPassword);
 	}else{
-		exibeErro(password,msgErro);
 		exibeErro(cPassword,msgErro);
 	}
 }
@@ -76,8 +75,10 @@ function validaCampoTxt(obj, campo, msgErro){
 	validaForm();
 }
 
+
+
 function validaPassword(obj){
-	checkPassword();	
+	checkCpassword();	
 	validaForm();
 }
 

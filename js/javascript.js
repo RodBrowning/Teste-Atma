@@ -91,10 +91,10 @@ function validaPassword(obj){
 }
 
 function validaForm(){
-	if( nome == true &&
-		sobreNome == true &&
-		email == true &&
-		validPassword == true
+	if( nome &&
+		sobreNome &&
+		email &&
+		validPassword
 		){
 		validForm = true;
 		liberaBotao();
@@ -105,10 +105,10 @@ function validaForm(){
 }
 
 function liberaBotao(){
-	if(validForm == false){
-		submit.disabled = true;
-	}else{
+	if(validForm){
 		submit.disabled = false;
+	}else{
+		submit.disabled = true;
 	}
 }
 
@@ -121,10 +121,10 @@ function exibeErro(obj, msg){
 
 	// Se nao existir uma ul ela será criada
 	// Se existir sera excluido o li dentro dela
-	if(!ul){				
+	if(ul){
+		ul.removeChild(ul.lastChild);			
+	}else{	
 		var ul = document.createElement("ul");
-	}else{
-		ul.removeChild(ul.lastChild);
 	}
 
 	// Exibe a mensagem de erro
@@ -145,7 +145,12 @@ function retiraErro(obj){
 	}
 }
 
-
+// Limpa o formulario e exibe mensagem de sucesso
+function send(){
+	event.preventDefault();    
+	document.querySelector('form').reset();
+	alert("Cadastro efetuado com sucesso. Obrigado");
+}
 
 
 
@@ -223,7 +228,6 @@ function checkEmpty(){
 	}	
 }
 
-// Limpa o formulario e exibe mensagem de sucesso
 document.querySelector("#submit").addEventListener("click", function(event){
     event.preventDefault();    
 	

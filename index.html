@@ -21,7 +21,7 @@
 							<h2 class="pb-2">Sign Up</h2>
 							<p class="text-secondary">Hire the best candidates in 24 hours! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque incidunt ex voluptatum harum.</p>							
 						</div>		
-						<form class="container pb-5 text-secondary">
+						<form class="container pb-5 text-secondary" method="post" action="#">
 							<div class="row">
 								<div class="form-group col-lg-6">
 								    <label for="first-name">FIRST NAME</label>
@@ -46,7 +46,7 @@
 								    <input type="password" class="form-control" id="cPassword"  oninput="validaPassword(this)" onfocusout="validaPassword(this)">
 								</div>
 							</div>
-						  <input type="submit" class="btn btn-secondary btn-block" disabled id="submit" value="SIGN UP">
+						  <input type="submit" class="btn btn-secondary btn-block" disabled id="submit" value="SIGN UP" onclick="send()">
 						</form>
 					</div>
 				</div>

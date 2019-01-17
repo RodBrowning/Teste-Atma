@@ -45,7 +45,7 @@ function checkCpassword(){
 			validPassword = false;
 		}
 	}else{
-		return exibeErro(cPassword,'Lastname field is required');
+		return exibeErro(cPassword,'Password field is required');
 	}
 	if(validPassword){
 		retiraErro(cPassword);

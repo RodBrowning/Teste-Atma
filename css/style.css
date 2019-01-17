@@ -11,3 +11,23 @@
 .gray-div{
 	min-height: 70vh
 }
+
+li{	
+	margin-top: .5em;
+    position: relative;
+    color: #f76161;
+}
+
+li:before{
+	content: "\f105";
+    font-family: "Font Awesome 5 Free";
+    font-style: normal;
+    font-weight: 800;
+    text-decoration: inherit;
+/*--adjust as necessary--*/
+    color: #f76161;
+    font-size: 18px;
+    padding-right: 0.5em;
+    position: absolute;
+    left: -1em;
+}

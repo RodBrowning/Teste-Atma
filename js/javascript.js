@@ -34,20 +34,22 @@ function validEmail(obj){
 function checkPassword(){
 	var password = document.querySelector("#password");
 	var cPassword = document.querySelector("#cPassword");
+	var msgErro = "Os passwords devem ser iguais";
 	if(hasText(password) && hasText(cPassword)){
 		if(password.value.trim() == cPassword.value.trim()){
-			validPassword = true;
-			retiraPasswordErro(password);
-			retiraPasswordErro(cPassword);
+			validPassword = true;			
 		}else{
 			validPassword = false;
-			exibePasswordErro(password);
-			exibePasswordErro(cPassword);
 		}
 	}else{
-		validPassword = false;
-		exibePasswordErro(password);
-		exibePasswordErro(cPassword);
+		validPassword = false;		
+	}
+	if(validPassword){
+		retiraErro(password);
+		retiraErro(cPassword);
+	}else{
+		exibeErro(password,msgErro);
+		exibeErro(cPassword,msgErro);
 	}
 }
 
@@ -56,7 +58,7 @@ function checkPassword(){
 function validaNome(obj){
 	nome = hasText(obj);
 	if(!nome){
-		exibeErro(obj);
+		exibeErro(obj,"Este campo é obrigatorio");
 	}else{
 		retiraErro(obj);
 	}
@@ -66,7 +68,7 @@ function validaNome(obj){
 function validaSobrenome(obj){
 	sobreNome = hasText(obj);
 	if(!sobreNome){
-		exibeErro(obj);
+		exibeErro(obj,"Este campo é obrigatorio");
 	}else{
 		retiraErro(obj);
 	}
@@ -76,9 +78,9 @@ function validaSobrenome(obj){
 function validaEmail(obj){
 	email = validEmail(obj);
 	if(!email){
-		exibeEmailErro(obj);
+		exibeErro(obj,"Email invalido");
 	}else{
-		retiraEmailErro(obj);
+		retiraErro(obj);
 	}
 	validaForm();
 }
@@ -111,7 +113,7 @@ function liberaBotao(){
 }
 
 
-function exibeErro(obj){
+function exibeErro(obj, msg){
 	var ul = obj.parentElement.querySelector('ul');	
 	// Aqui acontece se o campo estiver vazio
 	// Altera a cor do campo para um ton de vermelho claro
@@ -127,7 +129,7 @@ function exibeErro(obj){
 
 	// Exibe a mensagem de erro
 	var li = document.createElement("li");
-	var txt = document.createTextNode("Este campo é obrigatorio");
+	var txt = document.createTextNode(msg);
 	ul.appendChild(li);
 	li.appendChild(txt);
 	obj.parentElement.appendChild(ul);	
@@ -143,69 +145,8 @@ function retiraErro(obj){
 	}
 }
 
-function exibeEmailErro(obj){
-	var ul = obj.parentElement.querySelector('ul');	
-	// Aqui acontece se o campo estiver vazio
-	// Altera a cor do campo para um ton de vermelho claro
-	obj.style.backgroundColor = "#ffefef";
 
-	// Se nao existir uma ul ela será criada
-	// Se existir sera excluido o li dentro dela
-	if(!ul){				
-		var ul = document.createElement("ul");
-	}else{
-		ul.removeChild(ul.lastChild);
-	}
 
-	// Exibe a mensagem de erro
-	var li = document.createElement("li");
-	var txt = document.createTextNode("Email invalido");
-	ul.appendChild(li);
-	li.appendChild(txt);
-	obj.parentElement.appendChild(ul);	
-}
-
-function retiraEmailErro(obj){
-	var ul = obj.parentElement.querySelector('ul');
-	if(ul){
-		// Remove a ul com a mensagem de erro
-		obj.parentElement.removeChild(obj.parentElement.lastChild);
-		// Muda a cor do campo pra branco
-		obj.style.backgroundColor = "#fff";			
-	}
-}
-
-function exibePasswordErro(obj){
-	var ul = obj.parentElement.querySelector('ul');	
-	// Aqui acontece se o campo estiver vazio
-	// Altera a cor do campo para um ton de vermelho claro
-	obj.style.backgroundColor = "#ffefef";
-
-	// Se nao existir uma ul ela será criada
-	// Se existir sera excluido o li dentro dela
-	if(!ul){				
-		var ul = document.createElement("ul");
-	}else{
-		ul.removeChild(ul.lastChild);
-	}
-
-	// Exibe a mensagem de erro
-	var li = document.createElement("li");
-	var txt = document.createTextNode("Os passwords devem ser iguais");
-	ul.appendChild(li);
-	li.appendChild(txt);
-	obj.parentElement.appendChild(ul);	
-}
-
-function retiraPasswordErro(obj){
-	var ul = obj.parentElement.querySelector('ul');
-	if(ul){
-		// Remove a ul com a mensagem de erro
-		obj.parentElement.removeChild(obj.parentElement.lastChild);
-		// Muda a cor do campo pra branco
-		obj.style.backgroundColor = "#fff";			
-	}
-}
 
 
 

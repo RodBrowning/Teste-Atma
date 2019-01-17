@@ -5,6 +5,7 @@ var email = false;
 var validPassword = false;
 var validForm = false;
 
+var controle;
 
 // Verifica estado do campo
 function hasText(obj){
@@ -54,34 +55,23 @@ function checkPassword(){
 	}
 }
 
-
 // Validação dos campos
-function validaNome(obj){
-	nome = hasText(obj);
-	if(!nome){
-		exibeErro(obj,"Este campo é obrigatorio");
+function validaCampoTxt(obj, campo, msgErro){
+	switch(campo){
+		case "nome" : case "sobreNome" : controle = hasText(obj); break;		
+		case "email": controle = validEmail(obj); break;
+	}
+
+	if(!controle){
+		exibeErro(obj,msgErro);
 	}else{
 		retiraErro(obj);
 	}
-	validaForm();
-}
 
-function validaSobrenome(obj){
-	sobreNome = hasText(obj);
-	if(!sobreNome){
-		exibeErro(obj,"Este campo é obrigatorio");
-	}else{
-		retiraErro(obj);
-	}
-	validaForm();
-}
-
-function validaEmail(obj){
-	email = validEmail(obj);
-	if(!email){
-		exibeErro(obj,"Email invalido");
-	}else{
-		retiraErro(obj);
+	switch(campo){
+		case "nome" : nome = controle; break;		
+		case "sobreNome": sobreNome = controle; break;
+		case "email":  email = controle; break;
 	}
 	validaForm();
 }

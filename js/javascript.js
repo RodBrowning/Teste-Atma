@@ -38,14 +38,14 @@ function checkCpassword(){
 	var password = document.querySelector("#password");
 	var cPassword = document.querySelector("#cPassword");
 	var msgErro = "Os passwords devem ser iguais";
-	if(hasText(password) && hasText(cPassword)){
+	if(hasText(password) || hasText(cPassword)){
 		if(password.value.trim() == cPassword.value.trim()){
 			validPassword = true;			
 		}else{
 			validPassword = false;
 		}
 	}else{
-		validPassword = false;		
+		return exibeErro(cPassword,'O campo senha é obrigatório');
 	}
 	if(validPassword){
 		retiraErro(cPassword);
